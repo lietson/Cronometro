@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.cronometro {
+    padding: 10px;
+    height: 722px;
+    width: 60%;
+    position: relative;
+    float: left;
+    background-color: rgb(39, 38, 38);
+    color: blanchedalmond;
+}
+
+.cronometro h1{
+    text-align: center;
+    margin-top: 200px;
+    font-size: 100px;
+}
+
+.settings {
+    border-left: 2px solid #000000;
+    position: relative;
+    padding: 10px;
+    height: 722px;
+    width: 40%;
+    background-color: #1e1e1ee8;
+    float: right;
+    color: antiquewhite;
+}
+
+.settings [type="checkbox"]{
+    box-sizing: 1000px;
+}
+
+.cronometro .buttons button {
+    margin: 5px;
+}
+
+.tempo input{
+    top: 250px;
+    left: 30px;
+    margin: 10px;
+}
+
+.aviso{
+    position: absolute;
+    left: 300px;
+}
