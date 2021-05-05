@@ -1,21 +1,21 @@
 (function(){
     'use strict';
 
-    alert('Bem-vindo, espero que gostes :>')
+    alert('seja Bem-vindo, espero que goste :)')
 
     //Elementos do DOM
-    var $horas = document.querySelector('#relogio');// relógio do canto superior esquerdo da página
-    var $btnIniciar = document.querySelector('[data-js="iniciar"]');// botão iniciar
+    var $real_time = document.querySelector('#real_time');// relógio do canto superior esquerdo da página
+    var $btnstart = document.querySelector('[data-js="start"]');// botão Iniciar
     var $btnpause = document.querySelector('[data-js="pause"]');// botão pause
-    var $btncancelar = document.querySelector('[data-js="cancelar"]');// botão cancelar
+    var $btncancel = document.querySelector('[data-js="cancel"]');// botão cancel
     var $modeDark = document.querySelector('#dark');// input checkbox dark
-    var $regrecivo = document.querySelector('#regreciva');// input checkbox box regrecivo
-    var $bodycronometro = document.querySelector('.cronometro');// body part da difinição
+    var $return = document.querySelector('#return');// input checkbox box return
+    var $bodyponometer = document.querySelector('.ponometer');// body part da difinição
     var $counter = document.querySelector('.counter');// Counter(contador)
-    var $hora = document.querySelector('#horas');
-    var $minuto = document.querySelector('#minutos');
-    var $segundo = document.querySelector("#segundos");
-    var $aviso = document.querySelector('.aviso');
+    var $hour = document.querySelector('#hours');
+    var $minute = document.querySelector('#minutes');
+    var $second = document.querySelector("#seconds");
+    var $warning = document.querySelector('.warning');
 
     // Declaração de variaveis
     var temporizador;
@@ -24,43 +24,43 @@
     var seg = 0;
     var s,h,m
 
-    //Horas do canto superior esquerdo do página 
-    setInterval(function relogio(){
+    //Hora do canto superior esquerdo do página 
+    setInterval(function real_time(){
         const data = new Date();
-        let hora = data.getHours();
-        let minutos = data.getMinutes();
+        let hour = data.getHours();
+        let minutes = data.getMinutes();
 
-        //Acrescenta um 0 na hora e nos minutos se a hora ou o minuto for menor que 10
-        if(hora < 10){
-            hora = "0" + hora
+        //Acrescenta um 0 na hour e nos minutes se a hour ou o minute for menor que 10
+        if(hour < 10){
+            hour = "0" + hour
         }
-        if(minutos < 10){
-            minutos = "0" + minutos
+        if(minutes < 10){
+            minutes = "0" + minutes
         }
 
-        //atribui o hora(hora e minuto) do sistema no input $horas 
-        $horas.value = `${hora}:${minutos}`
+        //atribui o hour(hour e minute) do sistema no input $real_time
+        $real_time.value = `${hour}:${minutes}`
     }, 1000)
 
     //Modo Dark
     $modeDark.addEventListener('change', () => {
         if($modeDark.checked){
-            document.querySelector('.cronometro').style.background = "rgb(39, 38, 38)"
+            document.querySelector('.ponometer').style.background = "rgb(39, 38, 38)"
             $counter.style.color = "#fff"
             document.body.style.color = "#fff"
         }else{
-            document.querySelector('.cronometro').style.background = "#fff"
+            document.querySelector('.ponometer').style.background = "#fff"
             $counter.style.color = "#000"
             document.body.style.color = "#000"
         }
      })
 
     //Inicia o Cronômetro
-    $btnIniciar.addEventListener('click', () => {
-       if($regrecivo.checked){
+    $btnstart.addEventListener('click', () => {
+       if($return.checked){
            //Contagem recreciva
         console.log("ligado")
-        $aviso.innerHTML = ''
+        $warning.innerHTML = ''
         
         h = Array.from(hor)
         m = Array.from(min)
@@ -76,18 +76,18 @@
             seg = "0" + seg
         }
 
-        if(Number($hora.value) != 0 || Number($hora.value) != '' || Number($minuto.value) != 0 || Number($minuto.value) != '' || Number($segundo.value) != 0 || Number($segundo.value) != ''){
-            $hora.value = Number($hora.value) + 1
-            $minuto.value = Number($minuto.value) + 1
-            $segundo.value = Number($segundo.value) + 1
+        if(Number($hour.value) != 0 || Number($hour.value) != '' || Number($minute.value) != 0 || Number($minute.value) != '' || Number($second.value) != 0 || Number($second.value) != ''){
+            $hour.value = Number($hour.value) + 1
+            $minute.value = Number($minute.value) + 1
+            $second.value = Number($second.value) + 1
         }
 
-        if($hora.value == '' && $minuto.value == '' && $segundo.value == '' && min == 0 && hor == 0 && seg == 0){
-            $aviso.innerHTML = 'Click em Iniciar mas uma vez'
+        if($hour.value == '' && $minute.value == '' && $second.value == '' && min == 0 && hor == 0 && seg == 0){
+            $warning.innerHTML = 'Click em start mas uma vez'
         }
 
-        if($hora.value == '' && $minuto.value == '' && $segundo.value == '' || m[1] == 0 || h[1] == 0 || s[1] == 0){
-            $aviso.innerHTML = ''
+        if($hour.value == '' && $minute.value == '' && $second.value == '' || m[1] == 0 || h[1] == 0 || s[1] == 0){
+            $warning.innerHTML = ''
 
             seg = 60
             min = 59
@@ -122,24 +122,24 @@
 
                 $counter.innerHTML = `${hor}:${min}:${seg}`
             }, 1000)
-       }else if(Number($hora.value) != 0 && Number($hora.value) != '' && Number($minuto.value) != 0 && Number($minuto.value) != '' && Number($segundo.value) != 0 && Number($segundo.value) != ''){
+       }else if(Number($hour.value) != 0 && Number($hour.value) != '' && Number($minute.value) != 0 && Number($minute.value) != '' && Number($second.value) != 0 && Number($second.value) != ''){
         //Temporizador
 
-        $hora.value = Number($hora.value) - 1
-        $minuto.value = Number($minuto.value) - 1
-        $segundo.value = Number($segundo.value) - 1
+        $hour.value = Number($hour.value) - 1
+        $minute.value = Number($minute.value) - 1
+        $second.value = Number($second.value) - 1
 
-        seg = $segundo.value
-        min = $minuto.value
-        hor = $hora.value
+        seg = $second.value
+        min = $minute.value
+        hor = $hour.value
 
            temporizador = setInterval(function(){
     
                 if( hor == 0 && min == 0 && seg == 0){
-                    $hora.value = ''
-                    $minuto.value = ''
-                    $segundo.value = ''
-                    $aviso.innerHTML = `Terminou o Tempo`
+                    $hour.value = ''
+                    $minute.value = ''
+                    $second.value = ''
+                    $warning.innerHTML = `Terminou o Tempo`
                     clearInterval(temporizador)
                 }else{
                     seg -= 1
@@ -170,10 +170,10 @@
                 $counter.innerHTML = `${hor}:${min}:${seg}`
         }, 1000)
 
-       }//Terminou contagem regreciva
+       }//Terminou contagem return
        }else{
             console.log('desligado')
-            $aviso.innerHTML = ''
+            $warning.innerHTML = ''
         
         h = Array.from(hor)
         m = Array.from(min)
@@ -189,18 +189,18 @@
             seg = "0" + seg
         }
 
-        if(Number($hora.value) != 0 || Number($hora.value) != '' || Number($minuto.value) != 0 || Number($minuto.value) != '' || Number($segundo.value) != 0 || Number($segundo.value) != ''){
-            $hora.value = Number($hora.value) + 1
-            $minuto.value = Number($minuto.value) + 1
-            $segundo.value = Number($segundo.value) + 1
+        if(Number($hour.value) != 0 || Number($hour.value) != '' || Number($minute.value) != 0 || Number($minute.value) != '' || Number($second.value) != 0 || Number($second.value) != ''){
+            $hour.value = Number($hour.value) + 1
+            $minute.value = Number($minute.value) + 1
+            $second.value = Number($second.value) + 1
         }
 
-        if($hora.value == '' && $minuto.value == '' && $segundo.value == '' && min == 0 && hor == 0 && seg == 0){
-            $aviso.innerHTML = 'Click em Iniciar mas uma vez'
+        if($hour.value == '' && $minute.value == '' && $second.value == '' && min == 0 && hor == 0 && seg == 0){
+            $warning.innerHTML = 'Click em start mas uma vez'
         }
 
-        if($hora.value == '' && $minuto.value == '' && $segundo.value == '' || m[1] == 0 || h[1] == 0 || s[1] == 0){
-            $aviso.innerHTML = ''
+        if($hour.value == '' && $minute.value == '' && $second.value == '' || m[1] == 0 || h[1] == 0 || s[1] == 0){
+            $warning.innerHTML = ''
             temporizador = setInterval(function(){
                
                 seg = Number(1) + Number(seg)
@@ -230,27 +230,27 @@
 
                 $counter.innerHTML = `${hor}:${min}:${seg}`
             }, 1000)
-       }else if(Number($hora.value) != 0 && Number($hora.value) != '' && Number($minuto.value) != 0 && Number($minuto.value) != '' && Number($segundo.value) != 0 && Number($segundo.value) != ''){
+       }else if(Number($hour.value) != 0 && Number($hour.value) != '' && Number($minute.value) != 0 && Number($minute.value) != '' && Number($second.value) != 0 && Number($second.value) != ''){
         //Temporizador
-        $hora.value = Number($hora.value) - 1
-        $minuto.value = Number($minuto.value) - 1
-        $segundo.value = Number($segundo.value) - 1
-        if($hora.value < 10 && $hora.value > 0){
-            $hora.value = "0" + $hora.value
+        $hour.value = Number($hour.value) - 1
+        $minute.value = Number($minute.value) - 1
+        $second.value = Number($second.value) - 1
+        if($hour.value < 10 && $hour.value > 0){
+            $hour.value = "0" + $hour.value
             }
-            if($minuto.value < 10 && $minuto.value > 0){
-                $minuto.value = "0" + $minuto.value
+            if($minute.value < 10 && $minute.value > 0){
+                $minute.value = "0" + $minute.value
             }
-            if($segundo.value < 10 && $segundo.value > 0){
-                $segundo.value = "0" + $segundo.value
+            if($second.value < 10 && $second.value > 0){
+                $second.value = "0" + $second.value
             }
            temporizador = setInterval(function(){
     
-                if( hor == Number($hora.value) && min == Number($minuto.value) && seg == Number($segundo.value)){
-                    $hora.value = ''
-                    $minuto.value = ''
-                    $segundo.value = ''
-                    $aviso.innerHTML = `Terminou o Tempo`
+                if( hor == Number($hour.value) && min == Number($minute.value) && seg == Number($second.value)){
+                    $hour.value = ''
+                    $minute.value = ''
+                    $second.value = ''
+                    $warning.innerHTML = `Terminou o Tempo`
                     clearInterval(temporizador)
                 }else{
                     seg = Number(1) + Number(seg)
@@ -286,18 +286,18 @@
 
     $btnpause.addEventListener('click', () => {
         clearInterval(temporizador)
-        $aviso.innerHTML = `Pausado`
+        $warning.innerHTML = `Pausado`
     })
 
-    $btncancelar.addEventListener('click', () => {
+    $btncancel.addEventListener('click', () => {
         clearInterval(temporizador)
         hor = 0;
         min = 0;
         seg = 0;
-        $hora.value = ''
-        $minuto.value = ''
-        $segundo.value = ''
-        $aviso.innerHTML = `Cancelado com êxito`
+        $hour.value = ''
+        $minute.value = ''
+        $second.value = ''
+        $warning.innerHTML = `Cancelado com êxito`
         $counter.innerHTML = `00:00:00`
     })
 

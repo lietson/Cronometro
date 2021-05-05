@@ -16,42 +16,44 @@
 </head>
 <body>
     
-    <div class="container cronometro text-left">
-        <input type="time" id="relogio" disabled>
-        <h1 class="counter">00:00:00</h1>
-        <div class="buttons mt-4 text-center">
-            <button class="btn btn-success" data-js="iniciar">Iniciar</button>
-            <button class="btn btn-warning" data-js="pause">pause</button>
-            <button class="btn btn-danger" data-js="cancelar">cancelar</button>
+    <main>
+        <div class="ponometer">
+            <input type="time" id="real_time" disabled>
+            <h1 class="counter">00:00:00</h1>
+            <div class="buttons mt-4 text-center">
+                <button class="btn btn-success" data-js="start">Iniciar</button>
+                <button class="btn btn-warning" data-js="pause">pause</button>
+                <button class="btn btn-danger" data-js="cancel">cancelar</button>
+            </div>
         </div>
-    </div>
+        
+        <div class="settings">
+            <h2 class="text-center">Definições</h2>
+            <div class="custom-control custom-switch mt-5">
+                <input type="checkbox" class="custom-control-input" checked="" id="dark">
+                <label class="custom-control-label" for="dark">Modo Dark</label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="return">
+                <label class="custom-control-label" for="return">Contagem Decrescente</label>
+            </div>
     
-    <div class="settings text-left">
-        <h2 class="text-center">Definições</h2>
-        <div class="custom-control custom-switch mt-5">
-            <input type="checkbox" class="custom-control-input" checked="" id="dark">
-            <label class="custom-control-label" for="dark">Modo Dark</label>
+            <div class="time text-center">
+                <h2>Tempo</h2>
+                <!--Input de Horas-->
+                <label for="hours">Horas:</label>
+                <input type="number" name="hours" id="hours" max="24" min="0">
+                <!-- Input dos Minutos -->
+                <label for="minutes">Minutos:</label>
+                <input type="number" name="minutes" id="minutes" max="60" min="0">
+                <!--Input dos Segundos-->
+                <label for="seconds">Segundos:</label>
+                <input type="number" name="seconds" id="seconds" max="60" min="0">
+                <h2 class="warning text-center text-danger mt-4"></h2>
+            </div>
+    
         </div>
-        <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input"  id="regreciva">
-            <label class="custom-control-label" for="regreciva">Contagem Decrescente</label>
-        </div>
-
-        <div class="tempo text-center class mt-4">
-            <p>Timer<p>
-            <!--Input de Horas-->
-            <label for="horas">horas:</label>
-            <input type="number" name="horas" id="horas" max="24" min="0">
-            <!-- Input dos minutos -->
-            <label for="minutos">Minutos:</label>
-            <input type="number" name="minutos" id="minutos" max="60" min="0">
-            <!--Input dos segundos-->
-            <label for="segundos">Segundos:</label>
-            <input type="number" name="segundos" id="segundos" max="60" min="0">
-            <h2 class="aviso text-center text-danger mt-4"></h2>
-        </div>
-
-    </div>
+    </main>
 
     <script src="js/jquery-3.5.0.min.js"></script>
     <script src="js/bootstrap.js"></script>
