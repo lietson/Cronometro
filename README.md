@@ -1,4 +1,4 @@
-<h1 align="center">SetBorder - Vanilla</h1>
+<h1 align="center">Cronometro</h1>
 
 <p align="center">
     <img alt="License" src="https://img.shields.io/badge/Version-1.0-brightgreen">
@@ -24,10 +24,10 @@
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/lietsondossanto/setborder
+$ git clone https://github.com/lietsondossanto/Cronometro
 
 # Go into the repository
-$ cd setborder
+$ cd Cronometro
 
 # Run the index.html file with any browser.
 ```
@@ -39,6 +39,7 @@ $ cd setborder
 - HTML5
 - CSS3
 - JAVASCRIPT
+- Bootstrap
 
 ## Author
 
