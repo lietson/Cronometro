@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cronômetro - Express</title>
+    <title>Cronômetro</title>
 
     <!--Chama de arquivos css-->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    
+
     <!--Tags Meta-->
     <meta name="description" content="cronômetro">
     <meta name="keyword" content="cronômetro, contador, relógio">
     <meta name="author" content="Lietson dos santos">
 </head>
 <body>
-    
+
     <main>
         <div class="ponometer">
             <input type="time" id="real_time" disabled>
@@ -24,22 +24,23 @@
                 <button class="btn btn-success" data-js="start">Iniciar</button>
                 <button class="btn btn-warning" data-js="pause">pause</button>
                 <button class="btn btn-danger" data-js="cancel">cancelar</button>
+                <h2 class="warning"></h2>
             </div>
         </div>
-        
+
         <div class="settings">
             <h2 class="text-center">Definições</h2>
             <div class="custom-control custom-switch mt-5">
                 <input type="checkbox" class="custom-control-input" checked="" id="dark">
-                <label class="custom-control-label" for="dark">Modo Dark</label>
+                <label class="custom-control-label danger" for="dark">Modo Dark</label>
             </div>
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input"  id="return">
                 <label class="custom-control-label" for="return">Contagem Decrescente</label>
             </div>
-    
-            <div class="time text-center">
-                <h2>Tempo</h2>
+
+            <div class="timer text-center">
+                <h2>Timer</h2>
                 <!--Input de Horas-->
                 <label for="hours">Horas:</label>
                 <input type="number" name="hours" id="hours" max="24" min="0">
@@ -49,9 +50,7 @@
                 <!--Input dos Segundos-->
                 <label for="seconds">Segundos:</label>
                 <input type="number" name="seconds" id="seconds" max="60" min="0">
-                <h2 class="warning text-center text-danger mt-4"></h2>
             </div>
-    
         </div>
     </main>
 
